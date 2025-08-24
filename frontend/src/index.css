@@ -1,0 +1,46 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden; /* only hide horizontal scroll */
+  overflow-y: auto;   /* allow vertical scroll */
+}
+
+html {
+  scroll-behavior: smooth;
+  .hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+body {
+  @apply bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500;
+
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-in-out both;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
